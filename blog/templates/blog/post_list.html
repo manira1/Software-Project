@@ -5,7 +5,7 @@
   <ul style="text-align:right; padding-right: .6em;">
       <li style="width:250px;"><a style="padding-left:105px" href="{% url 'about' %}"><em><i>About</i></em></a></li>
       {% if user.is_authenticated %}
-      <li style="margin-left:54em; width:265px;"><a style="padding-left:110px;" href="{% url 'log_out' %}">Log&nbsp;out</a></li>
+      <li style="margin-left:54em; width:270px;"><a style="padding-left:110px;" href="{% url 'log_out' %}">Log&nbsp;out</a></li>
       {% else %}
       <li style="margin-left:35em; width:255px;"> <a style="padding-left:110px; " href="{% url 'signin' %}"><em><i>Sign&nbsp;In</i></em></a> </li>
       <li style="margin-left:0em;width:255px;"><a style="padding-left:110px" href="{% url 'signup' %}"><em><i>Sign&nbsp;Up</i></em></a> </li>
@@ -13,7 +13,7 @@
 
 
   </ul>
-  <div style="background-image: url('../../static/images/3.jpg');  opacity:1; height: 100%; background-size: cover; ">
+  <div style="background-image: url('../../static/images/3.jpg');  opacity:1; height: 30%; background-size: cover; ">
 
         <title>Contents</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -37,6 +37,9 @@
 
 
         </ul>
+      </div>
+
+        <div style="background-image: url('../../static/images/3.jpg');  background-repeat: repeat; opacity:1; background-size: cover; ">
     <div class="container">
         <div class="content">
           <div class="row">
@@ -48,7 +51,7 @@
 
                         </div>
                         <h1 id="title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                        <p id="para" style="color:black;">{{ post.text|linebreaksbr }}</p>
+                        <p id="para" style="color:black;">{{ post.text|linebreaksbr|truncatewords:10 }}</p>
                     </div>
                 {% endfor %}
               </div>

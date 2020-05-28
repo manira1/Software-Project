@@ -25,14 +25,16 @@
 
 </head>
 <body>
-        <h1 style="text-align: center; background:transparent;"><a href="{% url 'content' %}"><b><i>Contents</i></b></a></h1>
+  <div style="background-image: url('../../static/images/2.jpg');  opacity:1; background-size: auto; ">
+
+        <h1 style="text-align: center; background:transparent;"><a href="{% url 'content' %}"><b><i>Add Post</i></b></a></h1><br/>
         <ul id="mainMenu" style="background:transparent;">
 
             <li style=" width:643px;"><a href="{% url 'home' %}"><i class="fa fa-home" style="font-size:36px; color:black"></i>
 </a></li>
 
 
-            <li style=" width:643px;"><a href="{% url 'post_new' %}" style="font-size:24px"><div style=" color:black"><em><i>Add Post</em></i></div></a></li>
+            <li style=" width:643px;"><a href="{% url 'content' %}" style="font-size:24px"><div style=" color:black"><em><i>Contents</em></i></div></a></li>
 
 
 

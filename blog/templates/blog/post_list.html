@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+<head>
+
+  <ul style="text-align:right; padding-right: .6em;">
+      <li style="width:250px;"><a style="padding-left:105px" href="{% url 'about' %}"><em><i>About</i></em></a></li>
+      {% if user.is_authenticated %}
+      <li style="margin-left:54em; width:265px;"><a style="padding-left:110px;" href="{% url 'log_out' %}">Log&nbsp;out</a></li>
+      {% else %}
+      <li style="margin-left:35em; width:255px;"> <a style="padding-left:110px; " href="{% url 'signin' %}"><em><i>Sign&nbsp;In</i></em></a> </li>
+      <li style="margin-left:0em;width:255px;"><a style="padding-left:110px" href="{% url 'signup' %}"><em><i>Sign&nbsp;Up</i></em></a> </li>
+      {% endif %}
+
+
+  </ul>
+  <div style="background-image: url('../../static/images/3.jpg');  opacity:1; height: 100%; background-size: cover; ">
+
+        <title>Contents</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/content.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+        <h1 style="text-align: center; background:transparent;"><a href="{% url 'content' %}"><b><i>Contents</i></b></a></h1>
+        <ul id="mainMenu" style="background:transparent;">
+
+            <li style=" width:643px;"><a href="{% url 'home' %}"><i class="fa fa-home" style="font-size:36px; color:black"></i>
+</a></li>
+
+
+            <li style=" width:643px;"><a href="{% url 'post_new' %}" style="font-size:24px"><div style=" color:black"><em><i>Add Post</em></i></div></a></li>
+
+
+
+        </ul>
+    <div class="container">
+        <div class="content">
+          <div class="row">
+              <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date ">
+                            {{ post.published_date }}
+
+                        </div>
+                        <h1 id="title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                        <p id="para" style="color:black;">{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+              </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+</body>
+</html>

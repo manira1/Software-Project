@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+<head>
+
+
+    <ul style="text-align:center; padding-right: .6em;">
+        <li style="width:270px;"><a style="padding-left:105px" href="{% url 'about' %}"><em><i>About</i></em></a></li>
+        {% if user.is_authenticated %}
+        <li style="margin-left:44em;width:13px;padding-left:100px;"><a href="{% url 'log_out' %}"><em><i>Log&nbsp;out</i></em></a></li>
+        {% else %}
+        <li style="margin-left:34em; width:270px;"> <a style="padding-left:110px; " href="{% url 'signin' %}"><em><i>Sign&nbsp;In</i></em></a> </li>
+        <li style="margin-left:0em;width:255px;"><a style="padding-left:110px" href="{% url 'signup' %}"><em><i>Sign&nbsp;Up</i></em></a> </li>
+        {% endif %}
+    </ul>
+    <div style="background-image: url('../../static/images/1.jpg');  opacity:1; height: 100%; background-size: cover; ">
+    <title> IOT Wiki</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+        <nav >
+        <h1 style="text-align: center; background:transparent;color:blue; font-size: 45px;"><a href="/"><b><i>IOT Wiki</i></b></a>
+        </h1>
+        <ul id="mainMenu" style="background:transparent;">
+          <li style="width:500px;"><a href="{% url 'home' %}"><i class="fa fa-home" style="font-size:36px"></i>
+          </a></li>
+            <li style="width:500px;"><a href="{% url 'content' %}" style="font-size:24px"><em><i>Contents</i></em></a></li>
+            <li style="width:500px;"><a href="{% url 'post_new' %}" style="font-size:24px"><em><i>Add&nbsp;Post</i></em></a></li>
+
+        </ul>
+        </nav>
+
+
+    </div>
+
+
+</body>
+</html>
